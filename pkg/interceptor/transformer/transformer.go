@@ -89,6 +89,7 @@ func (i *Interceptor) Intercept(invoker source.Invoker, invocation source.Invoca
 		if errors.Is(err, action.ErrorDropEvent) {
 			return result.Drop()
 		}
+		log.Error("line: %v", e.String())
 		log.Error("action execute error: %v", err)
 	}
 	return invoker.Invoke(invocation)
